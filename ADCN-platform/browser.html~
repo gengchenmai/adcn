@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+	<title>Clustering</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="style.css">
+	
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+</head>
+<body>
+	<h3>DBSCAN prototype</h3>
+	<div id="pointOperation">
+		<div class="form" id="dbscan">
+			<form name="Eps">
+				Eps:<input type="text" name="EpsValue" value="5"/>
+			</form>
+			
+			<form name="MinPts">
+				MinPts:<input type="text" name="MinPtsValue" value="2"/>
+			</form>
+		</div>
+
+		<div class="Pt-btn" id="KNN-btn">KNN Plot</div>
+		<div class="Pt-btn" id="OPTICS">OPTICS</div>
+		<div class="Pt-btn" id="AEDBSCAN">AEDBSCAN</div>
+
+		</br>
+
+		<div class="form" id="pointForm">
+			<form name="PtsName">
+				PointSet Name:<input type="text" id="PtsNameValue" name="PtsNameValue" value="PointSetName"/>
+			</form>
+			<form>
+				Select PointSet:
+				<select id="slcPtsName" name="slcPtsName" onchange="selectPtsSet()">
+					<option>     </option>
+				</select>
+			</form>
+			<form action="">
+			  Open Points File: <input type="file" accept='text/plain' name="openPtFile" id="openPtFile" onchange="openPtFileFn(event)">
+			</form>
+		</div>
+		</br>
+		<div id="pointBtn">
+			<div class="Pt-btn" id="run">RUN</div>
+			<div class="Pt-btn" id="clear">CLEAR</div>
+			<div class="Pt-btn" id="undo">UNDO</div>
+			<div class="Pt-btn" id="savePt">SAVE POINTS</div>
+			<div class="Pt-btn" id="savePtAsFile">SAVE POINTS AS...</div>
+			
+		</div>
+		
+		
+	</div>
+	</br>
+	<div id="polygonOperation">
+		<div class="form" id="polygonForm">
+			<form name="PolygonName">
+				PolygonSet Name:<input type="text" id="PolygonNameValue" name="PolygonNameValue" value="PolygonSetName"/>
+			</form>
+			<form>
+				Select one PolygonSet:
+				<select id="slcPolygonName" name="slcPolygonName" onchange="selectPolygonSet()">
+					<option>     </option>
+				</select>
+			</form>
+			<form action="">
+			  Open Polygons File: <input type="file" accept='text/plain' name="openPolygonFile" id="openPolygonFile" onchange="openPolygonFileFn(event)">
+			</form>
+		</div>
+		</br>
+		<div id="polygonBtn">
+			<div class="Pgon-btn" id="polygon">DRAW POLYGON</div>
+			<div class="Pgon-btn" id="ptInPolygon">POINT IN POLYGON</div>
+			<div class="Pgon-btn" id="undoPolygon">UNDO POLYGON</div>
+			<div class="Pgon-btn" id="savePolygon">SAVE POLYGONS</div>
+			<div class="Pgon-btn" id="savePolygonAsFile">SAVE POLYGONS AS...</div>
+		</div>
+		
+	</div>
+	
+
+	<canvas class="clickable" id="canvas" height="750" width="1200">
+ 		<span class='display'></span>
+	</canvas>
+
+	<canvas id="KNN" height="450" width="550"></canvas>
+	
+
+
+	<script language="JavaScript" type='text/javascript' src="../dist/clustering.js"></script>
+	<script language="JavaScript" type='text/javascript' src="dbscan.js"></script>
+	<script language="JavaScript" type='text/javascript' src="FileSaver.js"></script>
+	<script language="JavaScript" type='text/javascript' src="FileSaver.min.js"></script>
+	
+	
+	
+</body>
+</html>

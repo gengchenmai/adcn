@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+	<title>Clustering</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="lib/chosen/chosen.min.css" />
+	<link rel="stylesheet" href="css/style.css"/>
+	
+ 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+ 	
+	
+</head>
+<body>
+	<div id="header"   style="height:72px; background: #ffffff; border: 2px #596c90; box-shadow: 0 0 8px #596c90;">
+		<!-- <img  style='margin-left:10px;height:100%;float:left;' src="imgs/ios_press.png" /> -->
+		<img  style='margin-left:10px;margin-top:2px;height:95%;float:left;' src="imgs/stko.png" />
+		<div style='float:left; padding-left:20px;margin-top:5px;' >
+			<h1  style="display: inline-block;font-weight: bold;color:#596c90;">Density-Based Clustering Prototype</h1>
+		</div>
+		<div style="float:right;margin: 6px 10px; color:#666">
+			  Design &amp; developed by <a href="http://stko.geog.ucsb.edu" target="_blank">STKO Lab, UCSB</a> 
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<canvas class="clickable" id="canvas" height="750" width="1200">
+		 		<span class='display'></span>
+			</canvas>
+		</div>
+		<div class="col-md-4">
+			<div class="container well" id = "paramSet" style="border: 2px #596c90; box-shadow: 0 0 8px #596c90; ">
+				<!-- <div class="row">
+					<div class="col-md-12 headboxText">Toolbar</div>
+				</div> -->
+				<div class="row">
+					<div class="well well-sm subsetTool" id="pointForm">
+						<div class="row sectionHeader">File Operation</div>
+						<div class="row">
+
+							<div class="col-md-3">Open Pts File:</div>
+							<div class="col-md-9" action="">
+							  <input class="form-control" type="file" accept='text/plain' name="openLabelGeoPtFile" id="openLabelGeoPtFile" onchange="openTwitterPtFileFn(event)">
+							</div>
+						</div>
+						<div class="row" style="margin-top:5px">
+							<div class="col-md-3">PointSet Name:</div>
+							<div class="col-md-9" name="PtsName">
+								<input class="form-control inputBox" type="text" id="PtsNameValue" name="PtsNameValue" value="PointSetName"/>
+							</div>
+						</div>
+						<div class="row" style="margin-top:5px">
+							<div class="col-md-3">Select PointSet:</div>
+							<div class="col-md-9">
+								<select id="slcPtsName" name="slcPtsName" class="inputBox" data-placeholder="Choose an Points Dataset..." onchange="selectPtsSet()">
+									<option>     </option>
+								</select>
+							</div>
+						</div> 
+						<!-- 
+						
+							<form action="">
+							  Open Points File: <input type="file" accept='text/plain' name="openPtFile" id="openPtFile" onchange="openPtFileFn(event)">
+							</form> -->
+							
+							<!-- <form action="">
+							  Open GeoPoints File: <input type="file" accept='text/plain' name="openGeoPtFile" id="openGeoPtFile" onchange="openGeoPtFileFn(event)">
+							</form>
+							<form action="">
+							  Open Batch GeoPoints File: <input type="file" accept='text/plain' name="openBatchGeoPtFile" id="openBatchGeoPtFile" onchange="openBatchGeoPtFileFn(event)" multiple>
+							</form> -->
+						
+						<div id="pointBtn" class="row" style="margin-top:5px; text-align: center;">
+							<div class="col-md-4">
+								<div class="Pt-btn" id="clear">CLEAR</div>
+							</div>
+							<div class="col-md-4">
+								<div class="Pt-btn" id="undo">UNDO</div>
+							</div>
+							<div class="col-md-4">
+								<div class="Pt-btn" id="saveLabelGeoPtAsFile">SAVE POINTS AS...</div>
+							</div>
+							
+							
+							<!-- <div class="Pt-btn" id="savePt">SAVE POINTS</div>
+							<div class="Pt-btn" id="savePtAsFile">SAVE POINTS AS...</div> -->
+							<!-- <div class="Pt-btn" id="saveGeoPtAsFile">SAVE GEOPOINTS AS...</div> -->
+							
+						</div>
+						
+						
+						
+					</div>
+					<div class="well well-sm subsetTool" id="pointOperation">
+						<div class="row sectionHeader">Clustering Operation</div>
+						
+						<div class="row">
+							<div class="col-md-3">Eps:</div>
+							<div class="col-md-9" name="Eps">
+								<input style="width:100%;" class="form-control inputBox" type="text" name="EpsValue" value="5"/>
+							</div>
+						</div>
+						
+						<div class="row" style="margin-top:5px">
+							<div class="col-md-3">MinPts:</div>
+							<div class="col-md-9" name="MinPts">
+								<input class="form-control inputBox" type="text" name="MinPtsValue" value="2"/>
+							</div>
+						</div>
+						
+						<!-- <div class="form" id="adbscan">
+							<form name="MaxDirChange">
+								MaxDirChange:<input type="text" name="MaxDirChangeValue" value="180"/>
+							</form>
+							
+							<form name="MaxEccenChange">
+								MaxEccenChange:<input type="text" name="MaxEccenChangeValue" value="1"/>
+							</form>
+						</div> -->
+						<!-- <div class="form" id="kmeans">
+							<form name="K">
+								K:<input type="text" name="KValues" value="5"/>
+							</form>
+						</div> -->
+						<!-- <div class="form" id="RandomPts">
+							<form name="NumOfPts">
+								NumOfPts:<input type="text" name="NumOfPtsValue" value="500"/>
+							</form>
+						</div> -->
+
+						
+						
+								
+						<!-- <div class="Pt-btn" id="LISD">LISD</div> -->
+						<!-- <div class="Pt-btn" id="ADBSCAN">ADBSCAN</div> -->
+						<!-- <div class="Pt-btn" id="ClusterIndex">ClusterIndex</div> -->
+						<!-- <div class="Pt-btn" id="LOOPADIndex">LOOPADIndex</div> -->
+						
+						<!-- <div class="Pt-btn" id="run">DBSCAN</div> -->
+						<!-- <div class="Pt-btn" id="KMEANS">KMEANS</div> -->
+						<!--<div class="Pt-btn" id="AEDBSCAN">ADCN-Eps</div>
+						<div class="Pt-btn" id="ANDBSCAN">ADCN-KNN</div>
+						<div class="Pt-btn" id="OPTICS">OPTICS</div> -->
+						<div class="row" style="margin-top:5px">
+							<div class="col-md-6" style="text-align: center;">
+								<div class="Pt-btn row" id="DBSCANRTree">DBSCAN</div>
+								<div class="Pt-btn row" id="OPTICSRTree">OPTICS</div>
+							</div>
+							<div class="col-md-6" style="text-align: center;">
+								<div class="Pt-btn row" id="AEDBSCANRTree">ADCN-Eps</div>
+								<div class="Pt-btn row" id="ANDBSCANRTree">ADCN-KNN</div>
+							</div>
+							
+						</div>
+						
+					</div>
+					<div class="well well-sm subsetTool" id="evaluation">
+						<div class="row sectionHeader">Clustering Evaluation</div>
+						<div class="row">
+							<div class="col-md-6" style="height:100%">
+								<div class="well well-sm" style="background: #ffffff; text-align: center;">
+									<div class="row subsectionHeader">Quality Evaluation</div>
+									<div class="Pt-btn row" id="LOOPDBIndex">DBSCAN Index</div>	
+									<div class="Pt-btn row" id="LOOPAEIndex">ADCN-Eps Index</div>
+									<div class="Pt-btn row" id="LOOPANIndex">ADCN-KNN Index</div>
+									<div class="Pt-btn row" id="LOOPOPIndex">OPTICS Index</div>
+									<div class="Pt-btn row" id="saveIndexAsFile">SAVE Index AS...</div>
+								</div>
+							</div>
+							<div class="col-md-6" style="height:100%">
+								<div class="well well-sm" style="background: #ffffff;  height:160px; text-align: center;">
+									<div class="row subsectionHeader">Efficience Evaluation</div>
+									<div class="Pt-btn row" id="RandomGeneratePts">Efficience Test</div>
+									<div class="Pt-btn row" id="saveTimeAsFile">SAVE Efficience Test AS...</div>
+								</div>
+							</div>
+						</div>
+						
+						
+						<!-- <div class="Pt-btn" id="LOOPTime">LOOPTime</div> -->
+						
+					</div>
+
+						<!-- </br>
+
+						
+						</br> -->
+						
+						
+						
+					
+					<!-- <div class="col-md-3 well" id="polygonOperation">
+						<div class="form" id="polygonForm">
+							<form name="PolygonName">
+								PolygonSet Name:<input type="text" id="PolygonNameValue" name="PolygonNameValue" value="PolygonSetName"/>
+							</form>
+							<form>
+								Select one PolygonSet:
+								<select id="slcPolygonName" name="slcPolygonName" onchange="selectPolygonSet()">
+									<option>     </option>
+								</select>
+							</form>
+							<form action="">
+							  Open Polygons File: <input type="file" accept='text/plain' name="openPolygonFile" id="openPolygonFile" onchange="openPolygonFileFn(event)">
+							</form>
+						</div>
+						</br>
+						<div id="polygonBtn">
+							<div class="Pgon-btn" id="polygon">DRAW POLYGON</div>
+							<div class="Pgon-btn" id="ptInPolygon">POINT IN POLYGON</div>
+							<div class="Pgon-btn" id="undoPolygon">UNDO POLYGON</div>
+							<div class="Pgon-btn" id="savePolygon">SAVE POLYGONS</div>
+							<div class="Pgon-btn" id="savePolygonAsFile">SAVE POLYGONS AS...</div>
+						</div>
+						
+					</div> -->
+					<div class="well well-sm subsetTool" id="kNNWell" style="text-align: center;">
+						<div class="row sectionHeader">KNN</div>
+						<div class="Pt-btn row" id="KNN-btn">KNN Plot</div>
+						<!-- <canvas id="KNN" height="450" width="550"></canvas> -->
+						<canvas id="KNN" height="300" width="550"></canvas>
+					</div>
+
+
+				</div>
+				
+				
+				<!-- </br> -->
+				
+				
+			</div>
+
+			
+		</div>
+	</div>
+	
+	
+	
+
+	
+
+	
+	
+
+	<script language="JavaScript" type='text/javascript' src="lib/jquery.min.js"></script>
+	<script language="JavaScript" type='text/javascript' src="lib/rtree.js"></script>
+	<script language="JavaScript" type='text/javascript' src="lib/FileSaver.js"></script>
+	<script language="JavaScript" type='text/javascript' src="lib/FileSaver.min.js"></script>
+	<script language="JavaScript" type='text/javascript' src="js/clustering.js"></script>
+	<script language="JavaScript" type='text/javascript' src="js/AEDBSCAN.js"></script>
+	<script language="JavaScript" type='text/javascript' src="js/ANDBSCAN.js"></script>
+	<script language="JavaScript" type='text/javascript' src="js/ADBSCAN.js"></script>
+	<script language="JavaScript" type='text/javascript' src="js/dbscan.js"></script>
+	
+	
+	
+	
+</body>
+</html>

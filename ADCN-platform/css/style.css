@@ -1,0 +1,271 @@
+
+
+
+
+#KNN-btn{
+    
+}
+#Eps-Candidate {
+    display: block;
+    height: 16px;
+    position: absolute;
+    text-align: right;
+    vertical-align: bottom;
+    
+}
+
+
+
+/*.convas {
+    border: 2px solid blue;
+    background: #ffffff;
+    height: 800px; width: 1200px;
+    margin: 15px;
+    position: absolute;
+}
+
+.display {
+    display: block;
+    height: 16px;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    top: 50%; 
+	margin-top: -8px;
+}*/
+
+form {
+    display: inline-block;
+	text-align: center;
+    margin:2px 5px 2px 5px;
+}
+
+
+
+#pointOperation{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Pgon-btn{
+    display: inline-block;
+    height:20px;
+    width:180px;
+    color:#ffffff;
+
+    font-family:arial;
+    font-weight:bold;
+    border-radius: 5px;
+    text-align:center;
+    margin:2px 5px 2px 5px;
+
+    background-color:#3C1414;
+    cursor:pointer;
+}
+
+
+.form{
+    display: inline-block;
+
+}
+
+#dbscan{
+    
+    display: inline-block;
+}
+
+#pointForm{
+    
+    display: inline-block;
+}
+
+#openPtFile{
+    background:#89CFF0;
+}
+
+#openPolygonFile{
+    background:#89CFF0;
+}
+/*
+#polygonForm{
+    background-color:#C4C3D0;
+}
+
+#pointOperation{
+    background-color:#ffffff;
+    border: 2px solid blue;
+    box-shadow: 0 0 8px #262896;
+
+}
+
+#polygonOperation{
+    background-color:#ffffff;
+    border: 2px solid blue;
+    box-shadow: 0 0 8px #C4C3D0;
+
+}
+
+#run{
+	
+	background-color:#2A52BE;
+}
+
+#clear{
+	background-color:#2A52BE;
+}
+
+#savePt{
+    background-color:#2A52BE;
+}
+
+#savePtAsFile{
+    background-color:#2A52BE;
+}
+
+#openPtFile{
+    background-color:#2A52BE;
+}
+
+#polygon{
+    background-color:#2A52BE;
+}
+
+#ptInPolygon{
+    background-color:#2A52BE;
+}
+
+#savePolygon{
+    background-color:#2A52BE;
+}
+*/
+h3{
+	text-align: center;
+}
+
+
+
+/*******************  style after adding bootstrap***************************/
+
+#paramSet
+{
+    border-radius: 5px 0px 0px 5px;
+    /*margin-bottom: 2px;*/
+    width:100%;
+    height:990px;
+    background-color:white;
+    margin:0;
+    padding:30px;
+    position: relative;
+}
+
+.headboxText
+{
+    margin-top:-30px;
+    text-align: center; 
+    font-family: 'Questrial', sans-serf; 
+    font-size: 1.5em;
+    font-weight:bolder;
+}
+
+.Pt-btn{
+    display: inline-block;
+    /*position:relative;
+    margin:auto;*/
+    height:20px;
+    width:80%;
+    color:#ffffff;
+
+    font-family:arial;
+    font-weight:bold;
+    border-radius: 5px;
+    text-align:center;
+    margin:2px 5px 2px 5px;
+    /*margin: 0 auto;*/
+
+    background-color:#337ab7;
+    cursor:pointer;
+    /*position:relative;
+    top: 50%;
+    transform:          translateY(-50%);*/
+
+
+}
+
+.inputBox {
+    height:25px;
+    width:100%;
+}
+
+.sectionHeader {
+    margin-top:-10px;
+    text-align: center; 
+    font-family: 'Questrial', sans-serf; 
+    font-size: 1.2em;
+    font-weight:bolder;
+}
+
+.subsectionHeader {
+    margin-top:-5px;
+    text-align: center; 
+    font-family: arial; 
+    font-size: 1.2em;
+    font-weight:bolder;
+}
+
+body
+{
+    /*height:100%;
+    width:100%;
+    border: 2px solid     #808080;*/
+    background: #f4f5f7;
+    overflow-x: hidden;
+    /*margin:15px;
+    position: relative;*/
+}
+
+.clickable {
+    border: 2px #596c90;
+    background: #ffffff;
+    
+    margin:10px;
+    
+    
+    /*-webkit-box-shadow: 0 0 8px #FFD700;
+    -moz-box-shadow: 0 0 8px #262896;*/
+    /*box-shadow: 0 0 8px #262896;*/
+    box-shadow: 0 0 8px #596c90;
+    clear:both;
+    cursor:crosshair;
+
+}
+
+/*#canvas {
+    height:100%;
+    width:100%;
+}*/
+
+.subsetTool {
+    width:100%;
+    /*margin-left:20px;*/
+    /*margin:10px 10px 10px 10px;*/
+}
+
+#KNN{
+    /*height:100%;
+    width:100%;*/
+    border: 2px #596c90;
+    box-shadow: 0 0 8px #596c90;
+    /*background: #FFFFCC;*/
+    background: #ffffff;
+    margin-top: 10px;
+    /*margin:15px;*/
+    
+    /*position: relative;*/
+    /*-webkit-box-shadow: 0 0 8px #FFD700;
+    -moz-box-shadow: 0 0 8px #262896;*/
+    /*box-shadow: 0 0 8px #262896;*/
+    
+    cursor:crosshair;
+
+}
