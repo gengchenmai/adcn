@@ -8,13 +8,13 @@ Code for recreating the results in [our TGIS paper](https://onlinelibrary.wiley.
 2. `ADCN-testdata/` folder contains the point sets we used in [our TGIS paper](https://onlinelibrary.wiley.com/doi/full/10.1111/tgis.12313) for the evaluation of ADCN.
 
 <p align="center">
-  <img src="illu_Image/interface.png" alt="interface" width="1000" />
+  <img src="illu-Image/interface.png" alt="interface" width="1000" />
 </p>
 
 ### Illustration of the reason why border points are exluded during the clustering process of ADCN-Eps and ADCN-KNN
 
 <p align="center">
-  <img src="illu_Image/border-pt-illustration-fl.png" alt="border-pt-illustration-fl" width="1000" />
+  <img src="illu-Image/border-pt-illustration-fl.png" alt="border-pt-illustration-fl" width="1000" />
 </p>
 
 The figure above shows the clustering result of ADCN-KNN (Eps = 24, MinPts = 3). Because ADCN uses ellipses instead of circles to get the Eps-ellipse-neighborhood of a point. When the algorithm is expanding one cluster along a zigzag linear feature like the figure shown above, the computed ellipse will be extremely flat like the “red ellipse” shown here. The Eps-ellipse-neighborhood of Point Pi is 4 points within the “red ellipse” including Pi itself. One interesting finding is that the only “black point”, we indicate as Pj, which is within the “red ellipse” should be a “Noise Point” according to both the clustering result and the result from human perception. Notice that Pj is a border point now with respect to Pi. The reason why ADCN-KNN can label Pj as a “Noise Point” is that Pj is only a border point but not a core point according to the current parameter combination (Eps = 24, MinPts = 3). However, if ADCN includes all the border points into the clusters during clustering process, Pj will be always labeled as a “Cluster Point” which contradicts with the result of human perception.
