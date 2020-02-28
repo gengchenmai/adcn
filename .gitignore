@@ -1,0 +1,27 @@
+# Logs
+/logs
+*.log
+
+# auxillary git repositories
+.git-*
+
+# compiled distributions
+build
+
+# dependencies
+node_modules
+.npm-packages
+package-lock.json
+
+# developer scrap files
+/scrap
+
+# ignore files
+*.ignore
+*.dev
+
+# developer utilities
+debug
+
+# data directory
+/data
